@@ -7,16 +7,24 @@ const INCREMENT = 'INCREMENT';
 const DECREMENT = 'DECREMENT';
 const INCREMENT_BY_VALUE = 'INCREMENT_BY_VALUE';
 const RESET = 'RESET'
+const ADD_USER = 'ADD_USER';
 
-
-
+ 
 // create state
 const initialCounterState = {
-     count: 0
+     users: ['jhon'],
+     count: 1
 }
 
-
 // create action
+
+const adduUser = (user) => {
+     return {
+          type: ADD_USER,
+          payload: user
+     }
+}
+
 
 const createIncrementAction = () => {
     return {
@@ -68,6 +76,11 @@ const createReducer = (state=initialCounterState, action) => {
                     ...state,
                     count: 0
                }
+          case ADD_USER:
+               return {
+                    users : [...state.users, action.payload],
+                    count: state.count + 1
+               }
           default:
                return state;
      }
@@ -78,10 +91,12 @@ const store = createStore(createReducer)
 
 store.subscribe( () => console.log(store.getState()))
 
-store.dispatch(createIncrementAction())
-store.dispatch(createIncrementAction())
-store.dispatch(createIncrementAction())
+// store.dispatch(createIncrementAction())
+// store.dispatch(createIncrementAction())
+// store.dispatch(createIncrementAction())
 // store.dispatch(createDecrementAction())
-store.dispatch(incrementCounterByValue(4))
-store.dispatch(resetCounterAction())
+// store.dispatch(incrementCounterByValue(4))
+// store.dispatch(resetCounterAction())
+
+store.dispatch(adduUser("smit"))
 
