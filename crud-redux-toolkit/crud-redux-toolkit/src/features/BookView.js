@@ -37,7 +37,7 @@ const BookView = () => {
                                                   <td className="p-4">{author}</td>
                                                   <td className="p-4">
                                                        <Link to="/edit-book" state={{ id, book_name, author }} className="bg-sky-900 text-white p-2 rounded mx-2 font-semibold" >Edit</Link>
-                                                       <a href="" className="bg-cyan-500 rounded p-2 mr-2 text-white font-semibold">Show</a>
+                                                       <Link to='/show-book' state={{ id, book_name, author }} className="bg-cyan-500 rounded p-2 mr-2 text-white font-semibold">Show</Link>
                                                        <button onClick={ () => handelDelete(id)} className="bg-red-700 rounded text-white p-2 font-semibold" >Delete</button>
                                                   </td>
                                              </tr>

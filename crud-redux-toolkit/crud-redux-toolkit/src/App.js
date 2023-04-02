@@ -7,6 +7,7 @@ import Error from './components/pages/Error';
 import CreateBook from './features/CreateBook';
 import BookView from './features/BookView';
 import EditBook from './features/EditBook';
+import ShowSingleBook from './features/ShowSingleBook';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
                 <Route path='/' element={<BookView />}></Route>
                 <Route path='/create' element={<CreateBook />}></Route>
                 <Route path='/edit-book' element={<EditBook />} ></Route>
+                <Route path='/show-book' element={<ShowSingleBook />}></Route>
                 <Route path='*' element={<Error />}></Route>
             </Routes>
         </BrowserRouter>
