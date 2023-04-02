@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteBook } from "./bookSlice";
-
+import {Link } from 'react-router-dom';
 
 const BookView = () => {
 
@@ -29,15 +29,16 @@ const BookView = () => {
                               </thead>
                               <tbody>
                                    {book && book.map( (value, index ) => {
+                                        const {id, book_name, author} = value
                                         return (
                                              <tr key={index} className="bg-gray-50 border" >
-                                                  <td className="p-4">{value.id}</td>
-                                                  <td className="p-4">{value.book_name}</td>
-                                                  <td className="p-4">{value.author}</td>
+                                                  <td className="p-4">{id}</td>
+                                                  <td className="p-4">{book_name}</td>
+                                                  <td className="p-4">{author}</td>
                                                   <td className="p-4">
-                                                       <a href="" className="bg-sky-900 text-white p-2 rounded mx-2 font-semibold" >Edit</a>
+                                                       <Link to="/edit-book" state={{ id, book_name, author }} className="bg-sky-900 text-white p-2 rounded mx-2 font-semibold" >Edit</Link>
                                                        <a href="" className="bg-cyan-500 rounded p-2 mr-2 text-white font-semibold">Show</a>
-                                                       <button onClick={ () => handelDelete(value.id)} className="bg-red-700 rounded text-white p-2 font-semibold" >Delete</button>
+                                                       <button onClick={ () => handelDelete(id)} className="bg-red-700 rounded text-white p-2 font-semibold" >Delete</button>
                                                   </td>
                                              </tr>
                                         )
